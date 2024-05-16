@@ -104,8 +104,12 @@ body {
     .subtitulo2 {
       font-size: 18px;
     }
+    .registro {
+        width: 50%;
+    }
 }
   
+/* Navbar */
 .navbar {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600; 
@@ -120,11 +124,18 @@ body {
     color: #1C2D85;
     text-decoration: underline;
 }
-  
 
+
+/*Botones*/  
+.btn-primary{
+    background-color:#1C2D85;
+    border-color: #1C2D85;
+    font-family: 'Montserrat', sans-serif;
+}
 .btn-outline-primary {
     color: #1C2D85; 
     border-color: #1C2D85;
+    background-color: #f8f9fa;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600; 
 }
@@ -134,7 +145,8 @@ body {
     border-color: #1C2D85; 
     background-color: #1C2D85;
 }
-  
+
+/* Cards */
 .card {
     border: none;
 }
@@ -219,4 +231,3 @@ body {
     font-size: 14px;
     color: #333;
 }
-  

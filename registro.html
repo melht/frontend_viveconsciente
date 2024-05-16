@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="estilos.css" rel="stylesheet">
+    <title>Vive Consciente</title>
+    <title>Contacto</title>
+</head>
+<body>
+    <!--Navbar-->
+    <div id="navbar-container" class="container-fluid"></div>
+    <!-- Navbar fin -->
+
+    <!-- Formulario e información -->
+    <div class="container px-auto py-5 registro rounded my-3" style="background: #A30459;">
+      <section class="container mx-auto flex-column py-2">
+        <div class="col text-center text-white">
+          <h3>Únete a nuestra comunidad</h3>
+          <p>Para acceder a los próximos eventos</p>
+        </div>
+        <div class="col">
+          <form>
+            <div class="mb-5">
+              <label for="nombre" class="form-label text-white">Nombre</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre completo">
+            </div>
+            <div class="mb-5">
+              <label for="email" class="form-label text-white">Correo Electrónico</label>
+              <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico">
+            </div>
+            <div class="mb-5">
+              <label for="telefono" class="form-label text-white">Teléfono</label>
+              <input type="tel" class="form-control" id="telefono" pattern="[0-9]+" placeholder="Ingresa tu teléfono">
+            </div>
+            <div class="mb-5">
+              <label for="telefono" class="form-label text-white">Contraseña</label>
+              <input type="tel" class="form-control" id="telefono" pattern="[0-9]+" placeholder="Ingresa tu contraseña">
+            </div>
+            <div class="text-center">
+              <a type="submit" class="btn btn-outline-primary">Crear cuenta</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    <!-- Fin forms e info-->
+
+
+    <!-- Frase -->
+    <section class="mt-5 pt-5">
+      <div class="container d-flex w-100 h-100 p-3 px-3 mx-auto flex-column">
+        <h5 class="subtitulo">En este espacio quiero acompañarte a que descubras tu poder, todos tenemos luz propia, solo que no sabemos o hemos olvidado cómo encenderla. Como dijo <span class="italica">Marianne Williamson</span> en su poema Nuestro miedo más profundo:</h5>
+        <h2 class="frase">Es <span class="resaltado">nuestra luz</span> no nuestra oscuridad, lo que nos asusta."</h2>
+      </div>
+    </section>
+    <!-- Frase fin -->
+
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+     <!-- Fin del footer -->
+   
+  <script>
+    $(document).ready(function() {
+      $('#navbar-container').load('comunes/navbar.html');
+      $('#footer-container').load('comunes/footer.html');
+    });
+  </script>
+
+</body>
+</html>
