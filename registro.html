@@ -22,28 +22,28 @@
       <section class="container mx-auto flex-column py-2">
         <div class="col text-center text-white">
           <h3>Únete a nuestra comunidad</h3>
-          <p>Para acceder a los próximos eventos</p>
+          <p>Suscríbete para recibir información y ofertas exclusivas de nuestros próximos eventos</p>
         </div>
         <div class="col">
-          <form>
+          <form id="registroForm">
             <div class="mb-5">
               <label for="nombre" class="form-label text-white">Nombre</label>
-              <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre completo">
+              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo">
             </div>
             <div class="mb-5">
               <label for="email" class="form-label text-white">Correo Electrónico</label>
-              <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico">
+              <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo electrónico">
             </div>
             <div class="mb-5">
               <label for="telefono" class="form-label text-white">Teléfono</label>
-              <input type="tel" class="form-control" id="telefono" pattern="[0-9]+" placeholder="Ingresa tu teléfono">
+              <input type="tel" class="form-control" id="telefono" name="telefono" pattern="[0-9]+" placeholder="Ingresa tu teléfono">
             </div>
             <div class="mb-5">
-              <label for="telefono" class="form-label text-white">Contraseña</label>
-              <input type="tel" class="form-control" id="telefono" pattern="[0-9]+" placeholder="Ingresa tu contraseña">
+              <label for="interes" class="form-label text-white">Evento que me interesa (OPCIONAL)</label>
+              <input type="tel" class="form-control" id="interes" name="interes" placeholder="Si estás interesada en algún evento específico, escribe aquí cuál">
             </div>
             <div class="text-center">
-              <a type="submit" class="btn btn-outline-primary">Crear cuenta</a>
+              <button type="submit" class="btn btn-outline-primary">Suscribirme</button>
             </div>
           </form>
         </div>
@@ -70,6 +70,35 @@
     $(document).ready(function() {
       $('#navbar-container').load('comunes/navbar.html');
       $('#footer-container').load('comunes/footer.html');
+
+      $('#registroForm').on('submit', function(event) {
+        event.preventDefault();
+
+        var nombre = $('#nombre').val();
+        var email = $('#email').val();
+        var telefono = $('#telefono').val();
+        var interes = $('#interes').val();
+
+        $.ajax({
+          url: 'http://localhost:8000/usuarios/',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({
+            nombre: nombre,
+            email: email,
+            telefono: telefono,
+            interes: interes
+          }),
+          success: function(response) {
+            alert('Suscripción exitosa. ¡Gracias por unirte a nuestra comunidad!');
+            $('#registroForm')[0].reset(); // Resetea el formulario después del envío
+          },
+          error: function(xhr, status, error) {
+            alert('Ocurrió un error. Por favor, intenta nuevamente.');
+            console.error(error);
+          }
+        });
+      });
     });
   </script>
 

@@ -17,14 +17,41 @@
     <div id="navbar-container" class="container-fluid"></div>
     <!-- Navbar fin -->
 
-    <!-- Album de cards -->
-    <div class="container">
-        <h1 class="my-4 resaltado italica text-center">Eventos</h1>
-        <div class="row" id="card-container">
-          <!-- Cards dinamicas -->
+    <!-- Imagen -->
+    <section class="centrada d-flex justify-content-center align-items-center">
+      <div class="card text-bg-dark text-center">
+          <img src="img/eventos.png" class="img-fluid img-movil" alt="...">
+          <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+              <h1 class="card-title1">EVENTOS</h1>
+          </div>
+      </div>
+  </section>
+    <!-- Fin de imagen -->
+
+    <!-- Catalogo -->
+    <div class="container py-5">
+      <div id="event-catalog" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+    </div>
+    <!-- Fin de catalogo -->
+
+    <!-- Llamada de accion -->
+    <div class="container2 mt-5 mb-3 px-0 px-sm-3" id="eventos">
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <img src="img/imgcomunidad.png" alt="Sole image" class="img2 img-fluid mb-3 mx-auto m-3">
+        </div>
+          <div class="col-md-4 d-flex align-items-center">
+            <div>
+            <h2 class="resaltado text-center my-3">¿Te gustaría asistir a nuestros eventos?</h2>
+            <h5 class="subtitulo2">Únete a nuestra comunidad para recibir más información e inscribirte</h5>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+              <a class="btn me-md-2 my-4 text-white" type="button" href="registro.html" style="background-color: #A30459;">Quiero unirme</a>
+            </div>
+          </div>
         </div>
       </div>
-    <!-- Fin del album de cards -->
+    </div>
+    <!-- Fin llamada de accion -->
 
     <!-- Footer -->
     <div id="footer-container"></div>
@@ -34,6 +61,30 @@
     $(document).ready(function() {
       $('#navbar-container').load('comunes/navbar.html');
       $('#footer-container').load('comunes/footer.html');
+
+      $.ajax({
+        url: 'http://localhost:8000/eventos/',
+        method: 'GET',
+        success: function(eventos) {
+            eventos.forEach(evento => {
+                $('#event-catalog').append(`
+                    <div class="col">
+                        <div class="card h-100 shadow-sm flex-grow-1" style="background-color: #A30459">
+                            <div class="card-body text-white">
+                              <h2 class="nombre">${evento.nombre}</h2>
+                              <p class="descripcion">${evento.descripcion}</p>
+                              <p class="fecha">${evento.fecha}</p>
+                              <p class="precio">${evento.precio}</p>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            });
+        },
+        error: function(err) {
+            console.error('Error mostrando eventos:', err);
+        }
+      });
     });
   </script>
 
